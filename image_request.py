@@ -13,7 +13,7 @@ def fetch_images(query, num_images=100):
     img_urls = []
     for img_tag in soup.find_all("img"):
         img_url = img_tag.get("src")
-        if img_url:
+        if img_url and not img_url.startswith("data:"):  # Skip data URLs
             img_url = urljoin(url, img_url)
             img_urls.append(img_url)
         if len(img_urls) >= num_images:
@@ -36,5 +36,5 @@ def save_images(img_urls, query):
             print(f"Could not save {img_url}: {e}")
 
 if __name__ == "__main__":
-    query = "puppies"
-    fetch_images(query, num_images=100)
+    query = "gambling"
+    fetch_images(query, num_images=500)
