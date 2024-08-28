@@ -46,5 +46,5 @@ def save_images(img_urls, query):
             print(f"Could not save {img_url}: {e}")
 
 if __name__ == "__main__":
-    query = "illegal substancesc"
+    query = "cigar"
     fetch_images(query, num_images=500)
